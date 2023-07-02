@@ -1,0 +1,161 @@
+h1,
+h2,
+h3,
+form {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  font-weight: 150;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 150;
+}
+
+form {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+input[type="submit"] {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container,
+.outer-box {
+  max-width: 900px;
+}
+
+.outer-box .container {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.background {
+  background-image: url("../img/nightbgone.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.search-bar {
+  width: 75%;
+  margin: 4px;
+  box-sizing: border-box;
+  padding: 5px 0 5px 35px;
+  opacity: 0.4;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-inside {
+  position: relative;
+}
+
+.search-inside i {
+  position: absolute;
+  padding: 15px 15px;
+  left: 60px;
+  top: -2px;
+  color: #515151;
+}
+
+.current-location-button {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+  background-color: lightgreen;
+}
+
+.col {
+  text-align: center;
+}
+
+.outer-box {
+  display: block;
+  margin: 50px auto;
+}
+
+.today-box,
+.thu-box,
+.fri-box,
+.sat-box,
+.sun-box,
+.mon-box {
+  display: block;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.1);
+}
+
+.today-box {
+  margin: 10px 10px 25px 10px;
+  padding: 10px 0 10px 0;
+  font-weight: 200;
+}
+
+.thu-box,
+.fri-box,
+.sat-box,
+.sun-box,
+.mon-box {
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.fa-moon,
+.fa-sun,
+.fa-cloud-sun {
+  color: yellow;
+}
+
+.fa-cloud,
+.one-cloud {
+  position: absolute;
+  font-size: 9.5px;
+}
+
+.fa-cloud {
+  margin-top: 9px;
+  margin-left: -12px;
+}
+
+.fa-droplet {
+  color: #0667dd;
+}
+
+.one-cloud {
+  margin-left: 26px;
+  margin-top: -12px;
+}
+
+.units {
+  font-size: 16px;
+}
+
+.bracket {
+  font-size: 16px;
+  color: lightgray;
+}
+
+.bracket,
+.units #fahrenheit-link,
+.units #celsius-link {
+  position: relative;
+  bottom: 17px;
+}
