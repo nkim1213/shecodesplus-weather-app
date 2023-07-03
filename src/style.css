@@ -34,6 +34,12 @@ a {
   text-decoration: none;
 }
 
+small {
+  display: block;
+  text-align: center;
+  margin-top: -25px;
+}
+
 .container,
 .outer-box {
   max-width: 900px;
