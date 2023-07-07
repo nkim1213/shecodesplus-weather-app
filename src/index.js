@@ -52,6 +52,8 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-city-input").value;
   searchCity(city);
+
+  navigator.geolocation.getCurrentPosition(retrieveWeather);
 }
 
 function getCurrentLocation(event) {
