@@ -28,6 +28,8 @@ function showWeather(response) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
   axios.get(apiUrl).then(showWeather);
+
+  navigator.geolocation.getCurrentPosition(retrieveWeather);
 }
 
 function retrieveWeather(position) {
@@ -88,9 +90,6 @@ let day = days[now.getDay()];
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-
-let currentLocationButton = document.querySelector(".current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertFahrenheit);
