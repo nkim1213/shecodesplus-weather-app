@@ -5,7 +5,6 @@ function convertFahrenheit(event) {
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
 
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temp.innerHTML = Math.round(fahrenheitTemperature);
 }
 
@@ -15,34 +14,25 @@ function convertCelsius(event) {
   let temp = document.querySelector("#temp");
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  let celsiusTemperature = (fahrenheitTemperature - 32) * (5 / 9);
 
   temp.innerHTML = Math.round(celsiusTemperature);
 }
 
-function search(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-city-input").value;
-  searchCity(city);
-}
-
 function showWeather(response) {
-  let city = response.data.name;
   let temperature = document.querySelector("#temp");
   let h1 = document.querySelector("#city");
   let highTemp = document.querySelector("#high");
-  let lowTemp = document.querySelector("low");
-  let description = document.querySelector("description");
+  let lowTemp = document.querySelector("#low");
+  let description = document.querySelector("#description");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
   h1.innerHTML = response.data.name;
   highTemp.innerHTML = Math.round(response.data.main.temp_max);
   lowTemp.innerHTML = Math.round(response.data.main.temp_min);
-  description.innerHTML = response.data.weather.description;
+  description.innerHTML = response.data.weather[0].description;
 
-  let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(showWeather);
+  fahrenheitTemperature = response.data.main.temp;
 }
 
 function retrieveWeather(position) {
@@ -52,8 +42,6 @@ function retrieveWeather(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`;
 
   axios.get(apiUrl).then(showWeather);
-
-  navigator.geolocation.getCurrentPosition(retrieveWeather);
 }
 
 function searchCity(city) {
@@ -75,7 +63,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(retrieveWeather);
 }
 
-let celsiusTemperature = null;
+let fahrenheitTemperature = null;
 
 let now = new Date();
 
@@ -104,7 +92,7 @@ let days = [
 let day = days[now.getDay()];
 
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector(".current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
@@ -116,3 +104,5 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertCelsius);
 
 h3.innerHTML = `${day} ${hours}:${minutes}`;
+
+searchCity("Los Angeles");
