@@ -165,3 +165,7 @@ small {
   position: relative;
   bottom: 17px;
 }
+
+#high {
+  font-weight: bolder;
+}
