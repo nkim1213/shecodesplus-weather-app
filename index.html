@@ -10,7 +10,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/styles.css" />
     <script
       src="https://kit.fontawesome.com/7ecea1baa8.js"
       crossorigin="anonymous"
@@ -31,6 +31,7 @@
                 id="search-city-input"
               />
               <input type="submit" value="Search" />
+              <button class="current-location-button">Current</button>
             </div>
           </form>
           <h1>
@@ -42,7 +43,10 @@
             <br />
             <i class="fa-solid fa-moon"></i>
           </h1>
-          <h2>Clear</h2>
+          <h2>
+            Clear <br />
+            <strong> H:75°</strong> L:55°
+          </h2>
           <h3></h3>
           <br />
           <div class="today-box">
@@ -137,14 +141,6 @@
         </div>
       </div>
     </div>
-    <small>
-      <a
-        href="https://github.com/nkim1213/shecodesplus-weather-app"
-        target="_blank"
-        >Open-source Code,</a
-      >
-      by Nelly Kim
-    </small>
     <script src="src/index.js"></script>
   </body>
 </html>
