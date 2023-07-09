@@ -1,13 +1,22 @@
 function convertFahrenheit(event) {
   event.preventDefault();
+
   let temp = document.querySelector("#temp");
-  temp.innerHTML = 63;
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertCelsius(event) {
   event.preventDefault();
+
   let temp = document.querySelector("#temp");
-  temp.innerHTML = 17;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  temp.innerHTML = Math.round(celsiusTemperature);
 }
 
 function search(event) {
@@ -20,9 +29,15 @@ function showWeather(response) {
   let city = response.data.name;
   let temperature = document.querySelector("#temp");
   let h1 = document.querySelector("#city");
+  let highTemp = document.querySelector("#high");
+  let lowTemp = document.querySelector("low");
+  let description = document.querySelector("description");
 
   temperature.innerHTML = Math.round(response.data.main.temp);
   h1.innerHTML = response.data.name;
+  highTemp.innerHTML = Math.round(response.data.main.temp_max);
+  lowTemp.innerHTML = Math.round(response.data.main.temp_min);
+  description.innerHTML = response.data.weather.main;
 
   let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
@@ -60,7 +75,11 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(retrieveWeather);
 }
 
+let celsiusTemperature = null;
+
 let now = new Date();
+
+let h2 = document.querySelector("h2");
 
 let h3 = document.querySelector("h3");
 
