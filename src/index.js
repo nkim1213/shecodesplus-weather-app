@@ -37,7 +37,7 @@ function showWeather(response) {
   h1.innerHTML = response.data.name;
   highTemp.innerHTML = Math.round(response.data.main.temp_max);
   lowTemp.innerHTML = Math.round(response.data.main.temp_min);
-  description.innerHTML = response.data.weather.main;
+  description.innerHTML = response.data.weather.description;
 
   let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
